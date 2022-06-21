@@ -1,0 +1,171 @@
+{
+  "definitions": {
+    "NS_list": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Experiment descriptor Schema",
+  "required": [
+    "TestCases",
+    "Automated",
+    "UEs",
+    "Slice",
+    "NSs",
+    "ExperimentType",
+    "Scenario",
+    "Parameters",
+    "Version"
+  ],
+  "properties": {
+    "Application": {
+      "$id": "#/properties/Application",
+      "type": [
+        "string",
+        "null"
+      ],
+      "title": "Application list",
+      "pattern": "^([a-zA-Z0-9-_]+)$"
+    },
+    "Automated": {
+      "$id": "#/properties/Automated",
+      "type": "boolean",
+      "title": "Automated experiment"
+    },
+    "ExclusiveExecution": {
+      "$id": "#/properties/ExclusiveExecution",
+      "type": "boolean",
+      "title": "ExclusiveExecution experiment"
+    },
+    "ExperimentType": {
+      "$id": "#/properties/ExperimentType",
+      "type": "string",
+      "title": "Experiment type",
+      "pattern":"^([a-zA-Z0-9-_]+)$"
+    },
+    "Extra": {
+      "$id": "#/properties/Extra",
+      "type": [
+        "object"
+      ],
+      "additionalProperties": {
+        "not": {
+          "type": "null"
+        }
+      },
+      "title": "Extra parameters"
+    },
+    "NSs": {
+      "$id": "#/properties/NSs",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/NS_list"
+      },
+      "title": "NS Id"
+    },
+    "Parameters": {
+      "$id": "#/properties/Parameters",
+      "type": [
+        "object"
+      ],
+      "additionalProperties": {
+        "not": {
+          "type": "null"
+        }
+      },
+      "title": "Parameters"
+    },
+    "Remote": {
+      "$id": "#/properties/Remote",
+      "type": [
+        "string",
+        "null"
+      ],
+      "title": "Remote Platform",
+      "pattern": "^([a-zA-Z0-9-_]+)$"
+    },
+    "RemoteDescriptor": {
+      "$id": "#/properties/RemoteDescriptor",
+      "type": [
+        "object",
+        "null"
+      ],
+      "title": "RemoteDescriptor"
+    },
+    "ReservationTime": {
+      "$id": "#/properties/ReservationTime",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "title": "Reservation time for experiment"
+    },
+    "Scenario": {
+      "$id": "#/properties/Scenario",
+      "type": [
+        "string",
+        "null"
+      ],
+      "title": "Scenario",
+      "pattern": "^([a-zA-Z0-9-_]+)$"
+    },
+    "Slice": {
+      "$id": "#/properties/Slice",
+      "type": [
+        "string",
+        "null"
+      ],
+      "title": "Slice ID",
+      "examples": "fer9af0gfg0ads",
+      "pattern": "^([a-zA-Z0-9-_]+)$"
+    },
+    "TestCases": {
+      "$id": "#/properties/TestCases",
+      "type": "array",
+      "title": "List of Testcases to be executed along with the experiment",
+      "items": {
+        "$id": "#/properties/TestCases/items",
+        "type": "string",
+        "title": "Testcase ID",
+        "examples": [
+          "TC1",
+          "TC2"
+        ]
+      }
+    },
+    "UEs": {
+      "$id": "#/properties/UEs",
+      "type": "array",
+      "title": "List of UEs",
+      "items": {
+        "$id": "#/properties/UEs/items",
+        "type": "string",
+        "title": "Name of the UE",
+        "examples": [
+          "UE1",
+          "UE2"
+        ],
+        "pattern": "^(.*)$"
+      }
+    },
+
+    "Version": {
+      "$id": "#/properties/Version",
+      "type": "string",
+      "title": "Reservation time for experiment",
+      "pattern": "^([a-zA-Z0-9-_.]+)$"
+    }
+  },
+  "dependencies": {
+    "RemoteDescriptor": [
+      "Remote"
+    ]
+  }
+}

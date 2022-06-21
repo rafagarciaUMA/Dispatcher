@@ -1,0 +1,16 @@
+# Test variables
+
+TEST_EMAIL=5genesistest@maildrop.cc
+API_URL=https://DISPATCHER:8082
+VIM_NAME=SELECTED_VIM
+
+## Do not change anything below this line ##
+TEST_USER=testuser
+TEST_PASS=testpass
+TEST_IMAGE=test_image.img
+
+# Robot variables
+
+ROBOT_WORK_DIR=/robotTesting
+ROBOT_RESULTS_DIR=/robotTesting/results
+PACKAGES_DIR=/robotTesting/packages
